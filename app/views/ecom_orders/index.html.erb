@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<div class="d-flex justify-content-between p-4 ">
+    <h1>E-commerce Orders</h1>
+    <%= link_to '<i class="fas fa-shopping-cart fa-lg pe-3"></i> New Order'.html_safe, new_ecom_order_path, class:'btn btn-success text-white p-4' %>
+</div>
+<table id="order_tables" class="table table-hover table-success">
+  <thead class="table table-hover table-danger">
+    <tr>
+      <th>Sales channel</th>
+      <th>Purchase date</th>
+      <th>Purchase</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>Customer</th>
+      <th>Shipped at</th>
+      <th>Num items shipped</th>
+      <th>Paymethod method</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ecom_orders.each do |ecom_order| %>
+      <tr>
+        <td class="text-center"><%= sales_channel_icon(ecom_order)%></td>
+        <td><%= ecom_order.purchase_date %></td>
+        <td><%= ecom_order.platform_order_num %><br/>
+          <strong>SKU:</strong><%= link_to ecom_order.item_sku, '#' , class: "btn btn-outline-danger p-1 mx-1"%>
+          </td>
+        <td><%= ecom_order.price %></td>
+        <td class="text-center" ><%= order_status_icon(ecom_order)%><br/>
+            <%= ecom_order.status %>
+        </td>
+        <td><%= ecom_order.customer_name %>,<br/>
+            <%= ecom_order.customer_state %></td>
+        <td><%= ecom_order.shipped_at %></td>
+        <td><%= ecom_order.num_items_shipped %></td>
+        <td><%= paymethod_method_icon(ecom_order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<script>
+  $(document).ready(function() {
+    var oTable = $("#order_tables").DataTable({
+      order: [[1, 'desc']]
+    })
+  });
+</script>
