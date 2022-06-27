@@ -1,5 +1,5 @@
 class EcomOrdersController < ApplicationController
-  before_action :set_ecom_order, only: %i[ show edit update destroy ]
+  before_action :set_ecom_order, only: %i[ show edit update destroy set_time ]
 
   # GET /ecom_orders or /ecom_orders.json
   def index
@@ -10,9 +10,10 @@ class EcomOrdersController < ApplicationController
   def show
   end
 
+  
   # GET /ecom_orders/new
   def new
-    @ecom_order = EcomOrder.new
+    @ecom_order = EcomOrder.new   
   end
 
   # GET /ecom_orders/1/edit

@@ -12,7 +12,7 @@
 
 <p>
   <strong>Purchase date:</strong>
-  <%= @ecom_order.purchase_date %>
+  <%= @ecom_order.purchase_date.strftime( '%m/%d/%Y') %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Sales channel:</strong>
-  <%= @ecom_order.sales_channel %>
+  <%= sales_channel_icon(@ecom_order) %>
 </p>
 
 <p>
@@ -42,7 +42,7 @@
 
 <p>
   <strong>Shipped at:</strong>
-  <%= @ecom_order.shipped_at %>
+  <%= @ecom_order.shipped_at? ? @ecom_order.shipped_at.strftime( '%m/%d/%Y') : "Not sent" %>
 </p>
 
 <p>
@@ -52,7 +52,7 @@
 
 <p>
   <strong>Paymethod method:</strong>
-  <%= @ecom_order.paymethod_method %>
+  <%=paymethod_method_icon(@ecom_order) %>
 </p>
 
 <%= link_to 'Edit', edit_ecom_order_path(@ecom_order) %> |

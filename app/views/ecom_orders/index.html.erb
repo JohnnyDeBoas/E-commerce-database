@@ -15,14 +15,15 @@
       <th>Shipped at</th>
       <th>Num items shipped</th>
       <th>Paymethod method</th>
+      <th>Options</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @ecom_orders.each do |ecom_order| %>
+    <% @ecom_orders.each_with_index do |ecom_order, index| %>
       <tr>
         <td class="text-center"><%= sales_channel_icon(ecom_order)%></td>
-        <td><%= ecom_order.purchase_date %></td>
+        <td><%= ecom_order.purchase_date.strftime( '%m/%d/%Y') %></td>
         <td><%= ecom_order.platform_order_num %><br/>
           <strong>SKU:</strong><%= link_to ecom_order.item_sku, '#' , class: "btn btn-outline-danger p-1 mx-1"%>
           </td>
@@ -32,9 +33,11 @@
         </td>
         <td><%= ecom_order.customer_name %>,<br/>
             <%= ecom_order.customer_state %></td>
-        <td><%= ecom_order.shipped_at %></td>
+        <td><%= ecom_order.shipped_at? ? ecom_order.shipped_at.strftime( '%m/%d/%Y') : "Not sent"%></td>
         <td><%= ecom_order.num_items_shipped %></td>
         <td><%= paymethod_method_icon(ecom_order) %></td>
+        <td><%= link_to 'Edit', edit_ecom_order_path(id: ecom_order.id)%> / <%= link_to "Delete", @ecom_orders[index], method: "delete", data: {confirm: "Are you sure you want to delete this order?"}%></td>
+      
       </tr>
     <% end %>
   </tbody>
