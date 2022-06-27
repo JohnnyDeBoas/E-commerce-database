@@ -13,12 +13,29 @@ class EcomOrdersController < ApplicationController
   
   # GET /ecom_orders/new
   def new
-    @ecom_order = EcomOrder.new   
+    @ecom_order = EcomOrder.new
+    @costumers_name = []
+    @costumers_info = []
+    Costumer.select{ |n| 
+      s = [n.name, n.id, n.state]
+      i = [n.adress, n.state, n.payment_prefer]
+      @costumers_name.push(s)
+      @costumers_info.push(i)
+
+        }
   end
 
   # GET /ecom_orders/1/edit
   def edit
     @has_created = true
+    @costumers_name = []
+    @costumers_info = []
+    Costumer.select{ |n| 
+      s = [n.name, n.id]
+      i = [n.adress, n.state, n.payment_prefer]
+      @costumers_name.push(s)
+      @costumers_info.push(i)
+        }
   end
 
   # POST /ecom_orders or /ecom_orders.json

@@ -44,12 +44,12 @@
 
   <div class="field pt-2">
     <%= form.label :customer_name, {:class => "form-label"} %>
-    <%= form.text_field :customer_name, {:class => "form-control"} %>
+    <%= form.select :customer_name, @costumers_name, {}, {:class => 'form-select'} %>
   </div>
 
   <div class="field pt-2">
     <%= form.label :customer_state, {:class => "form-label"} %>
-    <%= form.text_field :customer_state, {:class => "form-control"} %>
+    <%= form.text_field :customer_state, {:class => "form-control disable_input", :value => @costumers_info[0], :id => 'state_input' }%>
   </div>
 
   <div class="field pt-2">
@@ -59,7 +59,7 @@
 
   <div class="field pt-2">
     <%= form.label :paymethod_method, {:class => "form-label"} %>
-    <%= form.select :paymethod_method, [["Credit Card", "CC"], ["Transfer Bank", "TB"], ["Ticket", "T"], ["Others", "OT"]], {}, {:class => 'form-select'} %>
+    <%= form.select :paymethod_method, [["Credit Card", "CC"], ["Transfer Bank", "TB"], ["Ticket", "T"], ["Others", "OT"]], {}, {:class => 'form-select', :id =>'payment_input'} %>
   </div>
 
   <div class="actions text-end">
@@ -67,3 +67,11 @@
 
   </div>
 <% end %>
+<script>
+    $('.disable_input').prop('disabled', true);
+    $('#ecom_order_customer_name').change(function () {
+      $('#state_input').val($('#ecom_order_customer_name').val())
+      $('#payment_input').val($('#ecom_order_customer_name').val())
+    })
+
+</script>
