@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_172020) do
+ActiveRecord::Schema.define(version: 2022_06_27_185127) do
+
+  create_table "costumers", force: :cascade do |t|
+    t.string "name"
+    t.string "adress"
+    t.string "state"
+    t.string "payment_prefer"
+    t.float "total_spent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ecom_orders", force: :cascade do |t|
     t.float "price"

@@ -4,4 +4,4 @@
     <div class='d-flex justify-content-center'>
         <%= render 'form', ecom_order: @ecom_order, btn_submit: 'Criar'%>
     </div>
-<%= link_to 'Back', ecom_orders_path %>
+<%= link_to '<i class="fas fa-angle-double-left"></i> Back'.html_safe, ecom_orders_path, class:"btn btn-danger text-white my-3 px-4" %>

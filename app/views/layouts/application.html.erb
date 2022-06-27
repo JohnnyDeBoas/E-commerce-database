@@ -4,12 +4,12 @@
     <title>Mydatabase</title>
     <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/2c21d88c3d.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<script src="https://kit.fontawesome.com/2c21d88c3d.js" crossorigin="anonymous"></script>
-  <body>
+  <body class="bg-success">
   <div class="container-fluid">
     <%= yield %>
     </div>

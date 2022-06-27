@@ -18,6 +18,7 @@ class EcomOrdersController < ApplicationController
 
   # GET /ecom_orders/1/edit
   def edit
+    @has_created = true
   end
 
   # POST /ecom_orders or /ecom_orders.json

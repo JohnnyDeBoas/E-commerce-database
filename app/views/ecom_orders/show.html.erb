@@ -1,59 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @ecom_order.price %>
-</p>
+<div class="container bg-light p-4">
+  <p>
+    <strong>Price:</strong>
+    R$ <%= @ecom_order.price %>
+  </p>
 
-<p>
-  <strong>Item sku:</strong>
-  <%= @ecom_order.item_sku %>
-</p>
+  <p>
+    <strong>Item sku:</strong>
+    <%= @ecom_order.item_sku %>
+  </p>
 
-<p>
-  <strong>Purchase date:</strong>
-  <%= @ecom_order.purchase_date.strftime( '%m/%d/%Y') %>
-</p>
+  <p>
+    <strong>Purchase date:</strong>
+    <%= @ecom_order.purchase_date.strftime( '%m/%d/%Y') %>
+  </p>
 
-<p>
-  <strong>Platform order num:</strong>
-  <%= @ecom_order.platform_order_num %>
-</p>
+  <p>
+    <strong>Platform order num:</strong>
+    <%= @ecom_order.platform_order_num %>
+  </p>
 
-<p>
-  <strong>Sales channel:</strong>
-  <%= sales_channel_icon(@ecom_order) %>
-</p>
+  <p>
+    <strong>Sales channel:</strong>
+    <%= sales_channel_icon(@ecom_order) %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @ecom_order.status %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @ecom_order.status %>
+  </p>
 
-<p>
-  <strong>Customer name:</strong>
-  <%= @ecom_order.customer_name %>
-</p>
+  <p>
+    <strong>Customer name:</strong>
+    <%= @ecom_order.customer_name %>
+  </p>
 
-<p>
-  <strong>Customer state:</strong>
-  <%= @ecom_order.customer_state %>
-</p>
+  <p>
+    <strong>Customer state:</strong>
+    <%= @ecom_order.customer_state %>
+  </p>
 
-<p>
-  <strong>Shipped at:</strong>
-  <%= @ecom_order.shipped_at? ? @ecom_order.shipped_at.strftime( '%m/%d/%Y') : "Not sent" %>
-</p>
+  <p>
+    <strong>Shipped at:</strong>
+    <%= @ecom_order.shipped_at? ? @ecom_order.shipped_at.strftime( '%m/%d/%Y') : "Not sent" %>
+  </p>
 
-<p>
-  <strong>Num items shipped:</strong>
-  <%= @ecom_order.num_items_shipped %>
-</p>
+  <p>
+    <strong>Num items shipped:</strong>
+    <%= @ecom_order.num_items_shipped %>
+  </p>
 
-<p>
-  <strong>Paymethod method:</strong>
-  <%=paymethod_method_icon(@ecom_order) %>
-</p>
-
-<%= link_to 'Edit', edit_ecom_order_path(@ecom_order) %> |
-<%= link_to 'Back', ecom_orders_path %>
+  <p>
+    <strong>Paymethod method:</strong>
+    <%=paymethod_method_icon(@ecom_order) %>
+  </p>
+</div>
+<div class="container">
+  <%= link_to '<i class="fas fa-angle-double-left"></i> Back'.html_safe, ecom_orders_path, class:"btn btn-danger text-white my-3 px-4" %>
+  <%= link_to '<i class="fas fa-pen"></i> Edit'.html_safe, edit_ecom_order_path(@ecom_order), class:"btn btn-primary text-white my-3 px-4"  %>
+</div>

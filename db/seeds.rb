@@ -23,3 +23,5 @@
                         num_items_shipped: [1, 2].sample,
                         paymethod_method: ['CC', 'T', 'TB'].sample
   end
+
+Costumer.create name:  'João Lucas ', adress: 'Rua dos Jasmins, 163', state: "São Paulo", payment_prefer: "CC", total_spent: 0
