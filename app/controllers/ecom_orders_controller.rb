@@ -23,6 +23,14 @@ class EcomOrdersController < ApplicationController
       @costumers_info.push(i)
 
         }
+        @products = []
+        @products_names = []
+        @products_prices = []
+        Product.where(available: true).select{ |e| 
+          @products.push(e)
+          @products_names.push([e.name, e.id])
+        }
+
   end
 
   # GET /ecom_orders/1/edit

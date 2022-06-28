@@ -1,4 +1,4 @@
-<%= form_with(model: ecom_order, local: true, class: 'bg-light p-4 rounded-3 text-black fs-4') do |form| %>
+<%= form_with(model: ecom_order, local: true, class: 'bg-success p-4 rounded-3 text-black fs-4') do |form| %>
   <% if ecom_order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ecom_order.errors.count, "error") %> prohibited this ecom_order from being saved:</h2>
@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <% if @has_created == true  %>
     <div class="d-flex justify-content-end">
       <%= link_to '<i class="fas fa-eye"></i>'.html_safe, ecom_order_path, class: 'fs-4 text-white btn' %>
@@ -19,12 +18,12 @@
 
   <div class="field pt-2">
     <%= form.label :price, {:class => "form-label"}%>
-    <%= form.text_field :price, {:class => "form-control"} %>
+    <%= form.text_field :price, {:class => "form-control", :disabled => "true"} %>
   </div>
 
   <div class="field pt-2">
     <%= form.label :num_items_shipped, {:class => "form-label"} %>
-    <%= form.text_field :num_items_shipped, {:class => "form-control"} %>
+    <%= form.text_field :num_items_shipped, {:class => "form-control", :disabled => "true"} %>
   </div>
 
   <div class="field pt-2">
@@ -39,7 +38,7 @@
 
   <div class="field pt-2">
     <%= form.label :item_sku, {:class => "form-label"} %>
-    <%= form.text_field :item_sku, {:class => "form-control"} %>
+    <%= form.text_field :item_sku, {:class => "form-control", :disabled => "true"} %>
   </div>
 
   <div class="field pt-2">
