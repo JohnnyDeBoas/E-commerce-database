@@ -29,21 +29,39 @@
   <div class="field">
     <%= form.label :payment_prefer %>
     <%= form.select :payment_prefer, [["Credit Card", "CC"], ["Transfer Bank", "TB"], ["Ticket", "T"], ["Others", "OT"]], {}, {:class => 'form-select', :id =>'payment_input'}  %>
-    <%= form.text_field :payment_prefer, {:class => "d-none", :id => 'payment_other'} %>
+    <input class="d-none" type="text" disabled id="payment_other_show">
+    <div id="payment_other_div" class="d-none">
+    <input class="" type="text" id="payment_other">
+      <button type="button" class="btn btn-primary" id="payment_submit">
+          Adicionar
+      </button>
+      </div>
   </div>
   
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>
 
 <script>
-  $('#payment_input').prop(function () {
+  $('#payment_input').change(function () {
     payment =  $('#payment_input').val()
-    if (payment == "Others"){
-      $('#payment_other').
+    console.log(payment)
+    if (payment == "OT"){
+      $('#payment_other_div').removeClass('d-none')
+    }
+    else{
+      $('#payment_other_div').addClass('d-none')
+      $('#payment_other_show').addClass('d-none')
     }
 
+  })
+  $('#payment_submit').on('click',function () {
+    console.log('foi')
+    payment_other = $('#payment_other').val()
+    console.log(payment_other)
+    $('#payment_other_show').val(payment_other).attr('disabled', true).removeClass('d-none')
+    $('#payment_other').val('')
   })
 </script>

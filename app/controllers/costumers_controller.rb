@@ -22,7 +22,8 @@ class CostumersController < ApplicationController
   # POST /costumers or /costumers.json
   def create
     @costumer = Costumer.new(costumer_params)
-
+    @costumer.name = @costumer.name.camelize
+    @costumer.state = @costumer.state.camelize
     respond_to do |format|
       if @costumer.save
         format.html { redirect_to costumer_url(@costumer), notice: "Costumer was successfully created." }
