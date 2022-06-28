@@ -28,15 +28,22 @@
 
   <div class="field">
     <%= form.label :payment_prefer %>
-    <%= form.text_field :payment_prefer %>
+    <%= form.select :payment_prefer, [["Credit Card", "CC"], ["Transfer Bank", "TB"], ["Ticket", "T"], ["Others", "OT"]], {}, {:class => 'form-select', :id =>'payment_input'}  %>
+    <%= form.text_field :payment_prefer, {:class => "d-none", :id => 'payment_other'} %>
   </div>
-
-  <div class="field">
-    <%= form.label :total_spent %>
-    <%= form.text_field :total_spent %>
-  </div>
+  
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  $('#payment_input').prop(function () {
+    payment =  $('#payment_input').val()
+    if (payment == "Others"){
+      $('#payment_other').
+    }
+
+  })
+</script>

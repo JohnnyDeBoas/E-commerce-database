@@ -23,6 +23,11 @@
   </div>
 
   <div class="field pt-2">
+    <%= form.label :num_items_shipped, {:class => "form-label"} %>
+    <%= form.text_field :num_items_shipped, {:class => "form-control"} %>
+  </div>
+
+  <div class="field pt-2">
     <%= form.label :status, {:class => "form-label"} %>
     <%= form.select :status, [["Confirmed", "confirmed"], ["Shipped", "shipped"], ["Done", "delivered"]], {}, {:class => 'form-select'} %>
   </div>
@@ -49,12 +54,7 @@
 
   <div class="field pt-2">
     <%= form.label :customer_state, {:class => "form-label"} %>
-    <%= form.text_field :customer_state, {:class => "form-control disable_input", :value => @costumers_info[0], :id => 'state_input' }%>
-  </div>
-
-  <div class="field pt-2">
-    <%= form.label :num_items_shipped, {:class => "form-label"} %>
-    <%= form.text_field :num_items_shipped, {:class => "form-control"} %>
+    <%= form.text_field :customer_state, {:class => "form-control disable_input",  :id => 'state_input' }%>
   </div>
 
   <div class="field pt-2">
