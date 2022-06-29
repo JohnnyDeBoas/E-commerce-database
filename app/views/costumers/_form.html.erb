@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :adress %>
-    <%= form.text_field :adress %>
+    <%= form.text_field :adress, :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :payment_prefer %>
-    <%= form.select :payment_prefer, [["Credit Card", "CC"], ["Transfer Bank", "TB"], ["Ticket", "T"], ["Others", "OT"]], {}, {:class => 'form-select', :id =>'payment_input'}  %>
+    <%= form.select :payment_prefer, ["Credit Card", "Transfer Bank", "Ticket", "Others"], {}, {:class => 'form-select', :id =>'payment_input', :required => true}  %>
     <input class="d-none" type="text" disabled id="payment_other_show">
     <div id="payment_other_div" class="d-none">
     <input class="" type="text" id="payment_other">
@@ -37,7 +37,9 @@
       </button>
       </div>
   </div>
-  
+  <div class="fiels">
+    <%= form.text_field :payment_prefer_name, :class => 'd-none', :id => "payment_prefer_name"%>
+  </div>
 
   <div class="actions">
     <%= form.submit :class => 'btn btn-primary' %>
@@ -46,9 +48,10 @@
 
 <script>
   $('#payment_input').change(function () {
+        teste = $('#payment_input').val()
+        console.log(teste)
     payment =  $('#payment_input').val()
-    console.log(payment)
-    if (payment == "OT"){
+    if (payment == "Others"){
       $('#payment_other_div').removeClass('d-none')
     }
     else{
@@ -58,10 +61,8 @@
 
   })
   $('#payment_submit').on('click',function () {
-    console.log('foi')
     payment_other = $('#payment_other').val()
-    console.log(payment_other)
     $('#payment_other_show').val(payment_other).attr('disabled', true).removeClass('d-none')
-    $('#payment_other').val('')
+    $('#payment_input').val(payment_other)
   })
 </script>

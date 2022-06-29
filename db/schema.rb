@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_28_190740) do
+ActiveRecord::Schema.define(version: 2022_06_29_203033) do
 
   create_table "costumers", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_06_28_190740) do
     t.float "total_spent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "payment_prefer_name"
   end
 
   create_table "ecom_orders", force: :cascade do |t|
